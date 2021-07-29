@@ -1,0 +1,54 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
+general {
+output_format = "i3bar"
+  markup = pango
+  colors = true
+  color_good = "#24B396"
+  color_degraded = "#FFD631"
+  color_bad = "#DD5B7E"
+  interval = 2 
+}
+
+order += "battery all"
+order += "disk /"
+order += "memory"
+order += "tztime local"
+order += "volume master"
+
+battery all {
+        format = "  %percentage %remaining"
+	separator = false
+}
+
+disk "/" {
+        format = "  /:%free"
+        separator = false
+}
+
+memory {
+        format = " MEM:%percentage_used"
+        threshold_degraded = "1.4G"
+        format_degraded = "MEM %used"
+        separator = false
+}
+
+tztime local {
+		format = " %time"
+        format_time = " %a %-d %b  %H:%M"
+        separator = false
+}    
+
+volume master {
+        format = "  %volume "
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
+        separator = false
+}
