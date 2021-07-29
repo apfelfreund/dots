@@ -1,0 +1,9 @@
+XF86AudioRaiseVolume
+	pactl set-sink-volume @DEFAULT_SINK@ +10%
+XF86AudioLowerVolume
+	pactl set-sink-volume @DEFAULT_SINK@ -10%
+
+super + shift + d
+	dmenu_run
+
+
