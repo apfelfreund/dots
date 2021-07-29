@@ -1,0 +1,121 @@
+Menu DefaultRootMenu
+{
+        "Root Menu"            f.title
+ 
+	"Firefox"		f.exec	"dbus-launch firefox &"
+	"XTerm"			f.exec	"xterm &"
+    	"Telegram"              f.exec  "telegram-desktop &"
+    	"PcManFm"               f.exec  "pcmanfm &"
+	separator               f.separator
+ 
+    	"Internet"              f.menu internet
+    	"Office"                f.menu office
+    	"Multimedia"            f.menu multimedia
+	"Programming"		f.menu programming
+	"Emulation"		f.menu emulation
+	"Utils"			f.menu utils
+	"Games"			f.menu games
+#	"Toys"			f.menu toys
+	"Sessions"		f.menu sessions
+        separator               f.separator
+ 
+	"System"		f.menu	system
+ 
+#######################################################################################################
+        separator               f.separator
+ 
+        "Refresh"               f.refresh
+        "Toggle Behavior..."    f.set_behavior
+         no-label               f.separator
+        "Restart..."            f.restart
+        "Quit..."               f.quit_mwm
+}
+ 
+Menu internet
+{
+	"Firefox"			f.exec	"firefox &"
+	"Hexchat"			f.exec	"hexchat &"
+    	"Telegram"          		f.exec  "telegram-desktop &"
+    	"Uget"              		f.exec  "uget-gtk &"
+}
+
+Menu system
+{
+	"Wallpaper"	f.exec  "feh --bg-scale ~/.bg/bg1.jpg &"
+	"Layout"	f.exec  "xterm -e setxkbmap "us,ru" "winkeys" "grp:alt_shift_toggle,grp_led:scroll" &"
+	"Sound"		f.exec  "pulseaudio &"
+}
+  
+Menu office
+{
+	"Ted"				f.exec	"Ted &"
+	"OpenOffice Writer"		f.exec	"/usr/local/bin/openoffice-4.1.7-swriter &"
+	"OpenOffice Calc"		f.exec	"/usr/local/bin/openoffice-4.1.7-scalc &"
+	"Vim"			        f.exec	"xterm -e vim &"
+}
+ 
+Menu multimedia
+{
+	"Gimp"				f.exec	"gimp &"
+	"Inkscape"			f.exec	"inkscape &"
+	"Audacity"			f.exec	"dbus-launch audacity &"
+	"Scribus"			f.exec	"scribus &"
+}
+ 
+Menu	programming
+{
+    "Vim"             f.exec "xterm -e vim &"
+}
+ 
+Menu	emulation
+{
+    "DosBox"         f.exec  "dosbox" 
+}
+ 
+ 
+Menu	utils
+{
+	"Xkill"	     f.exec  "xkill &"
+	"Top"	     f.exec  "xterm -e top &"
+}
+ 
+Menu	games
+{
+ 	"Steam"	     f.exec  "steam &"
+}
+ 
+Menu 	toys
+{	
+
+}
+ 
+Menu sessions
+{
+        "Session"              f.title
+        "Restart"              f.exec "sudo poweroff -r now"
+        "Shutdown"             f.exec "sudo poweroff -h now"
+}
+Buttons DefaultButtonBindings
+{
+        <Btn1Down>              app                     f.raise
+	<Btn1Down>		window|icon		f.raise
+        <Btn3Down>              frame|icon              f.lower
+       #<Btn1Down>              root                    f.menu  DefaultRootMenu
+        <Btn2Down>              root                    f.menu  progs
+        <Btn3Down>              root                    f.menu  DefaultRootMenu
+        Meta<Btn1Down>          window|icon             f.move
+        Meta<Btn2Down>          window|icon             f.resize
+        Meta Shift<Btn1Down>    window|icon             f.minimize
+        Meta Shift<Btn2Down>    window|icon             f.focus_color
+        Meta Shift<Btn3Down>    window|icon             f.post_wmenu
+        Meta<Btn1Down>          root                    f.track_pan
+        Meta<Btn2Down>          root                    f.track_pan
+        Alt<Btn4up>	        app             	f.exec "transset-df --min 0.1 -p --dec 0.2"
+        Alt<Btn5down>	        app             	f.exec "transset-df -p --inc 0.1"
+	Alt<Btn1up>		root			f.exec "xterm &"
+	Alt<Key>enter	        root			f.exec "xterm &"
+}
+
+ 
+}
+
