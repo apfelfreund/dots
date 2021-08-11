@@ -1,3 +1,3 @@
 # dots
 
-![alt text](https://github.com/apfelfreund/dots/blob/main/wp/horizon.jpg)
+![alt text](https://github.com/apfelfreund/dots/blob/main/2021-08-11_23-48.png)
