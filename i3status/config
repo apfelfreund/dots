@@ -7,13 +7,12 @@
 # If the above line is not correctly displayed, fix your editor first!
 
 general {
-output_format = "i3bar"
-  markup = pango
-  colors = true
-  color_good = "#24B396"
-  color_degraded = "#FFD631"
-  color_bad = "#DD5B7E"
-  interval = 2 
+     output_format = "i3bar"
+     colors = true
+     color_good = "#50FA7B"
+     color_degraded = "#F1FA8C"
+     color_bad = "#FF5555"
+
 }
 
 order += "battery all"
