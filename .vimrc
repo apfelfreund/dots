@@ -1,7 +1,12 @@
-" VIMRC 
-" Author: Ivan Sinitsyn
-" Version 2.0
-" Tue Aug 10 00:55:11 MSK 2021
+"  **      ** ** ****     **** *******     ****** 
+" /**     /**/**/**/**   **/**/**////**   **////**
+" /**     /**/**/**//** ** /**/**   /**  **    // 
+" //**    ** /**/** //***  /**/*******  /**       
+"  //**  **  /**/**  //*   /**/**///**  /**       
+"   //****   /**/**   /    /**/**  //** //**    **
+"    //**    /**/**        /**/**   //** //****** 
+"     //     // //         // //     //   //////  
+" Fri Aug 13 23:52:24 MSK 2021
 
 set number
 set clipboard=unnamedplus " common buffer
@@ -12,7 +17,7 @@ syntax on
 filetype indent on
 set encoding=utf-8 " encoding
 autocmd BufNewFile *.md :read !date " When you creating a new file you gate a date of creation
-autocmd BufNewFile,BufRead *.py :ter " open terminal when python file are open
+autocmd BufNewFile,BufRead *.py :nnoremap <C-b> :!python *.py<CR> " command for compiling code on python 
 
 call plug#begin('~/.vim/plugged')
 	Plug 'morhetz/gruvbox'
