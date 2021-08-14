@@ -4,127 +4,44 @@
 The following is the .XResources file
 #####################################################
  
-Xft*dpi: 99
-Xft*antialias: true
-Xft.rgba:       rgb
-Xft.hinting:    true
-Xft*hinting: full
-Xft.hintstyle:  hintfull
-Xft.lcdfilter: lcddefault
- 
-*lookAndFeel: motif
- 
-#ifdef COLOR
-*Customization: -color
-#else
-*Customization: -mono
-#endif
- 
-Mwm*XClock*clientDecoration	: Border
-Mwm*XBiff*clientDecoration	: Border
-Mwm*iconDecoration		: label activelabel
-Mwm*iconPlacement		: bottom right 
-#Mwm*iconDecoration		: activelabel
-#Mwm*useClientIcon		: True
-Mwm*background			: LightBlue
-Mwm*foreground			: Black
-Mwm*activeBackground		: Grey 
-Mwm*icon*foreground		: DarkSlateBlue
-Mwm*fontList			: 9x13
-Mwm*menu*fontList		: 9x15
-Mwm*keyboardFocusPolicy		: pointer
-Mwm*focusAutoRaise		: false 
-Mwm*matchMenuColors 		: 1
-Mwm*fontList: -*-Menu-Medium-R-Normal--*-120-*-*-P-*-UTF-8
-Mwm*xbiff*clientDecoration: border
-Mwm*fontName			: System-ui Regular
-Mwm*useIconBox			: false 
-Mwm*useXclock			: true 
-#XTERM
-xterm*faceSize			: 11
-xterm*vt100*geometry		: 100x60			: 
-xterm*background		: #282828 
-xterm*foreground		: #fbf1c7
-xterm.titleBar			: true
-xterm.titleFont			: Monospace
-XTerm*faceName 			: DejaVu Sans Mono
-XTerm*fontSize			: 12
-xterm*cursorColor		: White
-xterm*fullCursor		: true
-xterm*scrollBar			: False
-xterm*saveLines			: 1000
-xterm*eightBitInput		: false
-xterm*termName			: xterm-256color
-xterm*charClass: 33:48,35:48,37:48,43:48,45-47:48,64:48,95:48,126:48
+! special
+*.foreground:   #c7ccd1
+*.background:   #1c2023
+*.cursorColor:  #c7ccd1
 
-#Selecting text
-XTerm*highlightSelection : true
-XTerm*trimSelection : true
+! black
+*.color0:       #1c2023
+*.color8:       #747c84
 
-XTerm.vt100.translations: #override \n\
-Ctrl <Key> minus : smaller-vt-font() \n\
-Ctrl <Key> plus  : larger-bt-font () \n\
-Ctrl <Key>C : copy-selection(CLIPBOARD) \n\
-Ctrl <Key>V : insert-selection(CLIPBOARD) \n\
+! red
+*.color1:       #c7ae95
+*.color9:       #c7ae95
 
-#XCLOCK 
-xclock*mode:		analog
-xclock*update:		1
-xclock*foreground:	black
-xclock*background:	grey87
-xclock*geometry:	120x120-0+0
- 
-xbiff*geometry:      50x50-10+90
- 
-! You will need to put your userid here
-xbiff*file:    /usr/spool/mail/john
-xbiff*foreground: grey60
-xbiff*background: white
-xbiff*update:     10
-xbiff*title:
- 
- 
-*backarrowKey: false
-*ttyModes: erase ^?
-*VT100.Translations: \
-#override <Key>BackSpace: string(0x7f) \n\
-<Key>Delete:    string(0x1b) string("[3~")
- 
-! The editor option only works in the later version of Xmh
-xmh.EditorCommand: emacs %s
-!or if you use vi: xmh.EditorCommand: /usr/local/X11R5/bin/xterm -e vi %s
-xmh*printcommand: lpr $*
-xmh*font:  -adobe-courier-bold-r-normal--14-*
-xmh*foreground:  Black
-xmh*background:   #d0d0d0
-xmh.Geometry:           750x875+200+75
-xmh.TocGeometry:           750x500
-xmh.CompGeometry: 580x475+250+50
- 
-Xmh*viewButtons.append.Translations:#override\n\
-   <Btn1Down>,<Btn1Up>: XmhAppendView()unset()\n
-Xmh*CommandButtonCount:    8
-Xmh*commandBox.button1.label: inc
-Xmh*commandBox.button1.translations: #override\
-   <Btn1Down>,<Btn1Up>: XmhIncorporateNewMail()
-Xmh*commandBox.button2.label: compose
-Xmh*commandBox.button2.translations: #override\
-   <Btn1Down>,<Btn1Up>: XmhComposeMessage()
-Xmh*commandBox.button3.label: next
-Xmh*commandBox.button3.translations: #override\
-   <Btn1Down>,<Btn1Up>: XmhViewNextMessage()
-Xmh*commandBox.button4.label: prev
-Xmh*commandBox.button4.translations: #override\
-   <Btn1Down>,<Btn1Up>: XmhViewPreviousMessage()
-Xmh*commandBox.button5.label: commit
-Xmh*commandBox.button5.translations: #override\
-   <Btn1Down>,<Btn1Up>: XmhCommitChanges()
-Xmh*commandBox.button6.label: delete
-Xmh*commandBox.button6.translations: #override\
-   <Btn1Down>,<Btn1Up>: XmhMarkDelete()
-Xmh*commandBox.button7.label: move
-Xmh*commandBox.button7.translations: #override\
-   <Btn1Down>,<Btn1Up>: XmhMarkMove()
-Xmh*commandBox.button8.label: reply to viewed msg
-Xmh*commandBox.button8.translations: #override\
-   <Btn1Down>,<Btn1Up>: XmhViewReply()
+! green
+*.color2:       #95c7ae
+*.color10:      #95c7ae
+
+! yellow
+*.color3:       #aec795
+*.color11:      #aec795
+
+! blue
+*.color4:       #ae95c7
+*.color12:      #ae95c7
+
+! magenta
+*.color5:       #c795ae
+*.color13:      #c795ae
+
+! cyan
+*.color6:       #95aec7
+*.color14:      #95aec7
+
+! white
+*.color7:       #c7ccd1
+*.color15:      #f3f4f5
+
+! URXterm  
+UXTerm*font: xft:DejaVu Sans Mono:pixelsize=18:antialias=true:hinting=true
+UXTerm*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=18:antialias=true:hinting=true
+
