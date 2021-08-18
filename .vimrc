@@ -18,6 +18,7 @@ filetype indent on
 set encoding=utf-8 " encoding
 autocmd BufNewFile *.md :read !date " When you creating a new file you gate a date of creation
 autocmd BufNewFile,BufRead *.py :nnoremap <C-b> :ter python %<CR> " command for compiling code on python 
+autocmd BufNewFile,BufRead *.rb :nnoremap <C-b> :ter ruby %<CR> " ruby
 
 call plug#begin('~/.vim/plugged')
 	Plug 'morhetz/gruvbox'
