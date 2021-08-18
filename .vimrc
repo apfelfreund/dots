@@ -6,7 +6,6 @@
 "   //****   /**/**   /    /**/**  //** //**    **
 "    //**    /**/**        /**/**   //** //****** 
 "     //     // //         // //     //   //////  
-" Fri Aug 13 23:52:24 MSK 2021
 
 set number
 set clipboard=unnamedplus " common buffer
