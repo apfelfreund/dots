@@ -43,6 +43,7 @@ for_window [tiling] border pixel 3
 
 # Открытие программ в плавающе окне
 for_window [title="steam"] floating enable
+for_window [title="pcmanfm"] floating enable
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
