@@ -13,7 +13,7 @@ xsetroot -solid '#5A8E3A'
 setxkbmap "us,ru" "winkeys" "grp:alt_shift_toggle,grp_led:scroll" &
 picom -f &
 feh --bg-scale ~/.config/herbstluftwm/wp/tri.jpg &
-brightness ctl s 100 &
+brightnessctl s 100 &
 
 # remove all existing keybindings
 hc keyunbind --all
