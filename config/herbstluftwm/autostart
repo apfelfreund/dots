@@ -13,8 +13,7 @@ xsetroot -solid '#5A8E3A'
 setxkbmap "us,ru" "winkeys" "grp:alt_shift_toggle,grp_led:scroll" &
 picom -f &
 feh --bg-scale ~/.config/herbstluftwm/wp/tri.jpg &
-#sxhkd &
-
+brightness ctl s 100 &
 
 # remove all existing keybindings
 hc keyunbind --all
@@ -29,6 +28,7 @@ hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-q close
 hc keybind $Mod-Return spawn "${TERMINAL:-xterm}" # use your $TERMINAL with xterm as fallback
 hc keybind $Mod-d spawn rofi -show drun
+hc keybind $Mod-Print spawn import $RANDOM.png # screenshot
 
 # volume
 hc keybind XF86AudioRaiseVolume spawn pactl set-sink-volume @DEFAULT_SINK@ +10% 
