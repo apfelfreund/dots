@@ -1,0 +1,84 @@
+[colors]
+background = #282828
+background-alt = #3c3836
+foreground = #689d6a
+foreground2 = #ebdbb2
+foreground-alt = #3c3836
+primary = #d79921
+secondary = #d3869b
+alert = #fb4934
+
+[bar/herbst]
+width = 100%
+height = 24
+radius = 0.0
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+foreground2= ${colors.foreground2}
+padding-left = 0
+padding-right = 1
+
+module-margin-left = 0
+module-margin-right = 1
+
+font-0 = DejaVu Sans Mono:pixelsize=14;1
+font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+font-2 = Font Awesome Free:pixelsize=10;3
+
+modules-left = herbstluftwm
+modules-center = 
+modules-right = pulseaudio date battery
+
+tray-position = right
+tray-padding = 1
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+label-indicator-padding = 2
+label-indicator-margin = 0
+label-indicator-background = ${colors.secondary}
+label-indicator-underline = ${colors.secondary}
+
+[module/pulseaudio]
+type = internal/pulseaudio
+format-volume = <label-volume> 
+label-volume = VOL %percentage%%
+label-volume-foreground = ${root.foreground2}
+label-muted = 🔇 muted
+label-muted-foreground = #666
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false
+
+[module/herbstluftwm]
+type = custom/script
+exec-if = ps -C herbstluftwm >/dev/null 2>&1
+exec = MONITOR=HDMI-0 ~/.config/polybar/herbstluftwm.sh
+tail = true
+
+[module/battery]
+type = custom/script
+exec = acpi | awk '{print $4}'
+format-foreground = #ebdbb2
+interval =1
+
+[module/date]
+type = internal/date
+date = %{F#ebdbb2}%Y-%m-%d%{F-}%
+time = %{F#ebdbb2}%H:%M
+label = %date% %time%
+interval = 1
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+; vim:ft=dosini
