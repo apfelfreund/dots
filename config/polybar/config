@@ -29,7 +29,7 @@ font-2 = Font Awesome Free:pixelsize=10;3
 
 modules-left = herbstluftwm title
 modules-center = 
-modules-right = pulseaudio date battery
+modules-right = pulseaudio keyboard date battery
 
 tray-position = right
 tray-padding = 1
@@ -86,6 +86,20 @@ format-padding = 0
 label-active-font = 0
 label = %title%
 label-maxlen = 50
+
+[module/keyboard]
+type = internal/xkeyboard
+format = <label-layout>
+label-layout = %{T2}KBD%{T-} %icon%
+layout-icon-default = EN
+layout-icon-0 = ru;RU
+layout-icon-1 = en;EN
+indicator-icon-default =
+indicator-icon-0 = caps lock;-CL;+CL
+indicator-icon-1 = scroll lock;-SL;+SL
+indicator-icon-2 = num lock;-NL;+NL
+label-indicator-on = %icon%
+label-indicator-off = %icon%
 
 [global/wm]
 margin-top = 0
