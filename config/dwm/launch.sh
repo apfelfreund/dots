@@ -1,5 +1,5 @@
 while true; do
-   xsetroot -name "  $(acpi | awk '{ print $4 }') |  $( date +"%F %R" )"
+   xsetroot -name " $(pamixer --get-volume) |  $(acpi | awk '{ print $4 }') |  $( date +"%F %R" )"
    sleep 1m    # Update time every minute
 done &
 
