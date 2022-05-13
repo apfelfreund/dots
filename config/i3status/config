@@ -22,7 +22,7 @@ order += "tztime local"
 order += "volume master"
 
 battery all {
-        format = "  %percentage %remaining"
+        format = "   %percentage %remaining"
 	separator = false
 }
 
@@ -32,7 +32,7 @@ disk "/" {
 }
 
 memory {
-        format = " MEM:%percentage_used"
+        format = " :%percentage_used"
         threshold_degraded = "1.4G"
         format_degraded = "MEM %used"
         separator = false
@@ -40,12 +40,12 @@ memory {
 
 tztime local {
 		format = " %time"
-        format_time = " %a %-d %b  %H:%M"
+        format = " %a %-d %b  %H:%M"
         separator = false
 }    
 
 volume master {
-        format = "  %volume "
+        format = "  %volume "
         device = "default"
         mixer = "Master"
         mixer_idx = 0
