@@ -24,7 +24,7 @@ exec --no-startup-id picom
 #i3_gaps------------------------------------------------------------------
 #smart_gaps on
 smart_borders on 
-gaps inner 10
+gaps inner 30
 gaps outer -4
 #Changing language layout-----------------------------------------------------------------
 exec --no-startup-id setxkbmap "us,ru" "winkeys" "grp:alt_shift_toggle,grp_led:scroll"
