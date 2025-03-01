@@ -1,0 +1,10 @@
+#_*_ mode: org _*_
+
+* My first header in org mode
+This is my first sentence in org mode(exclude header of course)
+
+* Testing lists
+** 1
+** 2
+** 3
+** 4
