@@ -579,10 +579,14 @@ DestroyModuleConfig SimpleButtons: *
 *SimpleButtons: Geometry 120x298+1470+419
 *SimpleButtons: Colorset SkyBlue4
 *Simplebuttons: Frame 0
-*SimpleButtons: Rows 1
+*SimpleButtons: Rows 6
 *SimpleButtons: Columns 1
-*SimpleButtons: (1x1, Icon "~/.fvwm/icons/mozilla.png", \
+*SimpleButtons: Font "xft:Sans:Bold:size=8:antialias=True"
+*SimpleButtons: (1x1, Title "Firefox" , \
               Action(Mouse 1) "Exec exec firefox")
+*SimpleButtons: (1x1, Title "File Manager" , \
+              Action(Mouse 1) "Exec exec pcmanfm")
+
 
 Style SimpleButtons !Title, WindowListSkip, sticky, !clicktofocus, fixedposition, fixedsize
 
