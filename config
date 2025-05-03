@@ -248,12 +248,15 @@ DestroyMenu MenuFvwmRoot
 AddToMenu   MenuFvwmRoot "Fvwm" Title
 + "&Programs%icons/programs.png%" Popup MenuPrograms
 + "XDG &Menu%icons/apps.png%" Popup XDGMenu
-+ "&XTerm%icons/terminal.png%" Exec exec $[infostore.terminal]
++ "&Terminal%icons/terminal.png%" Exec exec $[infostore.terminal]
++ "File Manager" Exec exec pcmanfm
++ "Browser" Exec exec firefox
 + "" Nop
 + "Fvwm&Console%icons/terminal.png%" Module FvwmConsole -terminal $[infostore.terminal]
 + "M&an Pages%icons/help.png%" Popup MenuFvwmManPages
 + "Copy Config%icons/conf.png%" FvwmScript FvwmScript-ConfirmCopyConfig
 + "" Nop
++ "XKill" Exec exec xkill
 + "Re&fresh%icons/refresh.png%" Refresh
 + "&Restart%icons/restart.png%" Restart
 + "&Quit%icons/quit.png%" Module FvwmScript FvwmScript-ConfirmQuit
