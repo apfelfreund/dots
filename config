@@ -1,6 +1,5 @@
 infoStoreAdd terminal xfce4-terminal
 
-###########
 # 1: Functions
 #
 # Fvwm can use custom functions for various tasks.
@@ -13,15 +12,6 @@ infoStoreAdd terminal xfce4-terminal
 #   + D [Action to do on a Mouse Double Click]
 #   + H [Action to do on a Mouse Hold]
 #   + M [Action to do on a Mouse Motion]
-###########
-
-# Start Function
-#
-# The start function is run right after fvwm is done reading
-# the config file. This function run after each restart
-# so using Test (Init) or Test (Restart) can further control
-# actions that are run during the first time run (Init) or
-# actions that are run after a restart.
 DestroyFunc StartFunction
 AddToFunc   StartFunction
 + I Module FvwmPager 
@@ -29,14 +19,13 @@ AddToFunc   StartFunction
 + I Module FvwmScript FvwmScript-DateTime
 + I Exec sleep 2 && xdotool search --name "DateTime" windowmove 1470 550
 + I Exec fvwm-root ~/.fvwm/images/background/2.png 
-+ I StartTint
-+ I Exec sleep 1 && xdotool search --name "tint2" windowmove 1470 860
 + I Exec setxkbmap "us,ru" "winkeys" "grp:alt_shift_toggle,grp_led:scroll"
 + I StartGxkb
 + I Module FvwmIconMan
 + I Exec pasystray
 + I Module FvwmButtons Butts
-
++ I Module FvwmButtons trays
++ I StartTint
 # Layout switcher
 DestroyFunc StartGxkb
 AddToFunc StartGxkb
@@ -47,7 +36,7 @@ DestroyFunc StartTint
 AddToFunc StartTint
 + I Exec tint2 
 
-style "tint2" !Title, windowlistskip, !UsePPosition, NoPPosition, NoGeometryWithInfo, Sticky, Iconifiitable
+style "tint2" !Title, windowlistskip, !UsePPosition, NoPPosition, NoGeometryWithInfo, Sticky, Iconifiitable, !Respawn
 
 # Mouse Bindings Functions
 DestroyFunc RaiseMoveX
@@ -581,6 +570,17 @@ DestroyModuleConfig Butts: *
               action(mouse 1) "exec exec xkill")
 
 Style Butts !Title, WindowListSkip, sticky, !clicktofocus, fixedposition, fixedsize, mwmbuttons
+
+DestroyModuleConfig trays:*
+*trays: Geometry 120x30+1470+597
+*trays: Back skyblue4
+*trays: Fore white
+*trays: Frame 0
+*trays: Rows 1
+*trays: Columns 1
+*trays: (swallow "tint2")
+
+style trays !Title, WindowListSkip, sticky, fixedposition, fixedsize
 
 # Local configuration file. For use with the default-config.
 #
