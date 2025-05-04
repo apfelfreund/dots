@@ -1,12 +1,4 @@
-# InfoStoreAdd can be used to store variable data internal to fvwm.
-# The variable can then be used in the configuration as $[infostore.name].
-#
-# You can also use environment variables but for data internal to fvwm
-# use InfoStore variables instead.
-#
-# The following is used in various menus and also sets the terminal
-# that FvwmConsole uses. Change this to your terminal of choice
-InfoStoreAdd terminal xfce4-terminal
+infoStoreAdd terminal xfce4-terminal
 
 ###########
 # 1: Functions
@@ -34,16 +26,18 @@ DestroyFunc StartFunction
 AddToFunc   StartFunction
 + I Module FvwmPager 
 + I Module FvwmEvent EventNewDesk
-+ I Module FvwmButtons SimpleButtons
++ I Module FvwmScript FvwmScript-DateTime
++ I Exec sleep 2 && xdotool search --name "DateTime" windowmove 1470 550
 + I Exec fvwm-root ~/.fvwm/images/background/2.png 
-+ I StartTint
-+ I Exec sleep 1 && xdotool search --name "tint2" windowmove 1470 860
+ + I StartTint
+ + I Exec sleep 1 && xdotool search --name "tint2" windowmove 1470 860
 + I Exec setxkbmap "us,ru" "winkeys" "grp:alt_shift_toggle,grp_led:scroll"
 + I StartGxkb
 + I Module FvwmIconMan
-+ I StartClock
-+ I Exec sleep 1 && xdotool search --name "xclock" windowmove 1470 728
+#+ I StartClock
 + I Exec pasystray
++ I Module FvwmButtons Butts
+
 
 # Layout switcher
 DestroyFunc StartGxkb
@@ -107,10 +101,7 @@ AddToFunc   IconManClick
 DestroyFunc ToggleTitle
 AddToFunc   ToggleTitle
 + I ThisWindow (State 1) WindowStyle Title
-+ I TestRc (Match) State 1 False
-+ I TestRc (Match) Break
-+ I WindowStyle !Title
-+ I State 1 True
++ I TestRc (Match) State 1 False + I TestRc (Match) Break + I WindowStyle !Title + I State 1 True
 
 
 # Function: ChangeDesk
@@ -154,6 +145,8 @@ IgnoreModifiers L25
 Style * BorderWidth 5, HandleWidth 5, MWMButtons, MWMBorder, FirmBorder
 Style * Colorset 1, HilightColorset 2
 Style * BorderColorset 3, HilightBorderColorset 4
+
+Style FvwmScript-DateTime !Title, WindowListSkip, sticky, !UsePPosition, NoPPosition
 
 # Disable Icons from appearing on desktop.
 # Comment this out or use Style * Icon to get the icons back.
@@ -234,7 +227,7 @@ Style * Colorset 1, HilightColorset 2, \
 #######
 # 4: Menus
 ###########
-MenuStyle * MenuColorset 1 , ActiveColorset 2, GreyedColorset 7, TitleColorset 2
+MenuStyle * Background skyblue4 , ActiveColorset 2, GreyedColorset white, TitleColorset 2
 MenuStyle * !Hilight3DOff, HilightBack, HilightTitleBack, SeparatorsLong
 MenuStyle * TrianglesSolid, TrianglesUseFore
 MenuStyle * ItemFormat "%|%3.1i%5.3l%5.3>%|"
@@ -507,8 +500,8 @@ DestroyModuleConfig FvwmIdent:*
 #   - Quit - This is a popup that asks for quit confirmation before
 #     quitting fvwm.
 DestroyModuleConfig FvwmScript:*
-*FvwmScript: DefaultColorset 10
-
+*FvwmScript: DefaultColorset skyblue4
+*FvwmScript: Colorset skyblue4
 # FvwmIconMan (list of running windows), and a clock.
 #
 # Note - To use the system tray you must have "stalonetray" installed.
@@ -541,7 +534,7 @@ DestroyModuleConfig FvwmIconMan:*
 *FvwmIconMan: ButtonGeometry 120x20
 *FvwmIconMan: ManagerGeometry 1x14-0+129
 *FvwmIconMan: NeverList "FvwmIconMan"
-*FvwmIconMan: Colorset skyblue4
+*FvwmIconMan: Background skyblue4
 *FvwmIconMan: FocusColorset 2
 *FvwmIconMan: IconColorset skyblue4
 *FvwmIconMan: FocusAndSelectColorset 12
@@ -557,6 +550,7 @@ DestroyModuleConfig FvwmIconMan:*
 *FvwmIconMan: Resolution global
 *FvwmIconMan: Tips needed
 *FvwmIconMan: Sort id
+*FvwmIconMan: Hilight slategray
 
 Style "FvwmIconMan" !Title, Sticky, NoIcon, WindowListSkip, FixedSize, !Handles, !clicktofocus 
 
@@ -574,28 +568,30 @@ DestroyModuleConfig EventNewDesk:*
 # FvwmForm is a module that can be used to build a GUI
 # form. Used with fvwm-menu-desktop-config.fpl.
 # This sets the default colorsets.
-*FvwmFormDefault: Colorset 10
+*FvwmFormDefault: Colorset SkyBlue4
 *FvwmFormDefault: ItemColorset 13
+*FvwmFormDefault: Background skyblue 4
 
-DestroyModuleConfig SimpleButtons: *
-*SimpleButtons: Geometry 120x298+1470+419
-*SimpleButtons: Colorset SkyBlue4
-*Simplebuttons: Frame 0
-*SimpleButtons: Rows 6
-*SimpleButtons: Columns 1
-*SimpleButtons: Font "xft:Sans:Bold:size=10:antialias=True"
-*SimpleButtons: (1x1, Title "Firefox" , \
+DestroyModuleConfig Butts: *
+*Butts: Geometry 120x120+1470+419
+*Butts: Back skyblue4
+*Butts: Fore white
+*Butts: Frame 0
+*Butts: Rows 6
+*Butts: Columns 1
+*Butts: Font "xft:Sans:Bold:size=10:antialias=True"
+*Butts: (1x1, Title "Firefox" , \
               Action(Mouse 1) "Exec exec firefox")
-*SimpleButtons: (1x1, Title "File Manager" , \
+*Butts: (1x1, Title "File Manager" , \
               Action(Mouse 1) "Exec exec pcmanfm")
-*SimpleButtons: (1x1, title "Terminal" , \
+*Butts: (1x1, title "Terminal" , \
               action(mouse 1) "exec exec xfce4-terminal")
-*SimpleButtons: (1x1, title "Telegram" , \
+*Butts: (1x1, title "Telegram" , \
               action(mouse 1) "exec exec telegram-desktop")
-*SimpleButtons: (1x1, title "Xkill" , \
+*Butts: (1x1, title "Xkill" , \
               action(mouse 1) "exec exec xkill")
 
-Style SimpleButtons !Title, WindowListSkip, sticky, !clicktofocus, fixedposition, fixedsize, mwmbuttons
+Style Butts !Title, WindowListSkip, sticky, !clicktofocus, fixedposition, fixedsize, mwmbuttons
 
 # Local configuration file. For use with the default-config.
 #
