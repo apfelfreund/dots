@@ -29,15 +29,13 @@ AddToFunc   StartFunction
 + I Module FvwmScript FvwmScript-DateTime
 + I Exec sleep 2 && xdotool search --name "DateTime" windowmove 1470 550
 + I Exec fvwm-root ~/.fvwm/images/background/2.png 
- + I StartTint
- + I Exec sleep 1 && xdotool search --name "tint2" windowmove 1470 860
++ I StartTint
++ I Exec sleep 1 && xdotool search --name "tint2" windowmove 1470 860
 + I Exec setxkbmap "us,ru" "winkeys" "grp:alt_shift_toggle,grp_led:scroll"
 + I StartGxkb
 + I Module FvwmIconMan
-#+ I StartClock
 + I Exec pasystray
 + I Module FvwmButtons Butts
-
 
 # Layout switcher
 DestroyFunc StartGxkb
@@ -50,12 +48,6 @@ AddToFunc StartTint
 + I Exec tint2 
 
 style "tint2" !Title, windowlistskip, !UsePPosition, NoPPosition, NoGeometryWithInfo, Sticky, Iconifiitable
-
-DestroyFunc
-AddToFunc StartClock
-+ I Exec xclock -geometry 120x120
-
-style "xclock" !title, FixedSize, windowlistskip, sticky
 
 # Mouse Bindings Functions
 DestroyFunc RaiseMoveX
@@ -149,10 +141,7 @@ Style * BorderColorset 3, HilightBorderColorset 4
 Style FvwmScript-DateTime !Title, WindowListSkip, sticky, !UsePPosition, NoPPosition
 
 # Disable Icons from appearing on desktop.
-# Comment this out or use Style * Icon to get the icons back.
-Style * !Icon
-
-Style ConfirmQuit !Title, PositionPlacement Center, WindowListSkip, Layer 6
+# Comment this out or use Style * Icon to get the icons back.  Style * !Icon Style ConfirmQuit !Title, PositionPlacement Center, WindowListSkip, Layer 6
 Style FvwmIdent WindowListSkip
 
 #######
@@ -500,8 +489,8 @@ DestroyModuleConfig FvwmIdent:*
 #   - Quit - This is a popup that asks for quit confirmation before
 #     quitting fvwm.
 DestroyModuleConfig FvwmScript:*
-*FvwmScript: DefaultColorset skyblue4
-*FvwmScript: Colorset skyblue4
+*FvwmScript: DefaultFore white
+*FvwmScript: DefaultBack skyblue4
 # FvwmIconMan (list of running windows), and a clock.
 #
 # Note - To use the system tray you must have "stalonetray" installed.
