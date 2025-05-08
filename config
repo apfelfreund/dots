@@ -31,7 +31,7 @@ DestroyFunc StartGxkb
 AddToFunc StartGxkb
 + I Exec gxkb
 
-Style "org-knopflerfish-framework-BundleThread" !title
+#Style "org-knopflerfish-framework-BundleThread" !title
 
 # system tray
 DestroyFunc StartTint
