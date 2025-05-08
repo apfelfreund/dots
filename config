@@ -31,6 +31,8 @@ DestroyFunc StartGxkb
 AddToFunc StartGxkb
 + I Exec gxkb
 
+Style "org-knopflerfish-framework-BundleThread" !title
+
 # system tray
 DestroyFunc StartTint
 AddToFunc StartTint
@@ -99,7 +101,7 @@ AddToFunc   ChangeDesk
 # Sets the focus style to SloppyFocus and a mouse click
 # in a window will Raise it.
 Style * SloppyFocus, MouseFocusClickRaises
-
+Style * !icon
 # Default Font
 DefaultFont "xft:Sans:Bold:size=8:antialias=True"
 
@@ -223,6 +225,7 @@ AddToMenu   MenuFvwmRoot "Fvwm" Title
 + "File Manager" Exec exec pcmanfm
 + "Browser" Exec exec firefox
 + "Amiga" Exec exec fs-uae
++ "Freeplane" Exec exec freeplane
 + "" Nop
 + "Fvwm&Console%icons/terminal.png%" Module FvwmConsole -terminal $[infostore.terminal]
 + "M&an Pages%icons/help.png%" Popup MenuFvwmManPages
