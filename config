@@ -572,6 +572,9 @@ DestroyModuleConfig Butts: *
               action(mouse 1) "exec exec telegram-desktop")
 *Butts: (1x1, title "Xkill" , \
               action(mouse 1) "exec exec xkill")
+*Butts: (1x1, title "Freplane" , \
+              action(mouse 1) "exec exec freeplane")
+
 
 Style Butts !Title, WindowListSkip, sticky, !clicktofocus, fixedposition, fixedsize, mwmbuttons
 
