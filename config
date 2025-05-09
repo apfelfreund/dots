@@ -17,7 +17,7 @@ AddToFunc   StartFunction
 + I Module FvwmPager 
 + I Module FvwmEvent EventNewDesk
 + I Module FvwmScript FvwmScript-DateTime
-+ I Exec sleep 2 && xdotool search --name "DateTime" windowmove 1470 550
++ I Exec sleep 2 && xdotool search --name "DateTime" windowmove 1470 570
 + I Exec fvwm-root ~/.fvwm/images/background/2.png 
 + I Exec setxkbmap "us,ru" "winkeys" "grp:alt_shift_toggle,grp_led:scroll"
 + I StartGxkb
@@ -227,15 +227,18 @@ AddToMenu   MenuFvwmRoot "Fvwm" Title
 + "Browser" Exec exec firefox
 + "Amiga" Exec exec fs-uae
 + "Freeplane" Exec exec freeplane
-+ "" Nop
++ "---" Nop
 + "Fvwm&Console%icons/terminal.png%" Module FvwmConsole -terminal $[infostore.terminal]
 + "M&an Pages%icons/help.png%" Popup MenuFvwmManPages
 + "Copy Config%icons/conf.png%" FvwmScript FvwmScript-ConfirmCopyConfig
-+ "" Nop
++ "---" Nop
 + "XKill" Exec exec xkill
++ "Poweroff" Exec exec xfce4-terminal -x sudo poweroff
 + "Re&fresh%icons/refresh.png%" Refresh
 + "&Restart%icons/restart.png%" Restart
 + "&Quit%icons/quit.png%" Module FvwmScript FvwmScript-ConfirmQuit
++ "---" Nop
++ "Poweroff" Exec exec xfce4-terminal -x sudo poweroff
 
 # Generate XDGMenu
 PipeRead "fvwm2-menu-desktop -e"
@@ -555,7 +558,7 @@ DestroyModuleConfig EventNewDesk:*
 *FvwmFormDefault: Background skyblue 4
 
 DestroyModuleConfig Butts: *
-*Butts: Geometry 120x120+1470+419
+*Butts: Geometry 120x140+1470+419
 *Butts: Back skyblue4
 *Butts: Fore white
 *Butts: Frame 0
@@ -572,14 +575,14 @@ DestroyModuleConfig Butts: *
               action(mouse 1) "exec exec telegram-desktop")
 *Butts: (1x1, title "Xkill" , \
               action(mouse 1) "exec exec xkill")
-*Butts: (1x1, title "Freplane" , \
+*Butts: (1x1, title "Freeplane" , \
               action(mouse 1) "exec exec freeplane")
 
 
 Style Butts !Title, WindowListSkip, sticky, !clicktofocus, fixedposition, fixedsize, mwmbuttons
 
 DestroyModuleConfig trays:*
-*trays: Geometry 120x30+1470+597
+*trays: Geometry 120x30+1470+617
 *trays: Back skyblue4
 *trays: Fore white
 *trays: Frame 0
