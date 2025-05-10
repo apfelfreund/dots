@@ -220,7 +220,6 @@ MenuStyle * Font "xft:Sans:Bold:size=12:antialias=True"
 # window or using alt-f1 (or menu).
 DestroyMenu MenuFvwmRoot
 AddToMenu   MenuFvwmRoot "Fvwm" Title
-+ "&Programs%icons/programs.png%" Popup MenuPrograms
 + "XDG &Menu%icons/apps.png%" Popup XDGMenu
 + "&Terminal%icons/terminal.png%" Exec exec $[infostore.terminal]
 + "File Manager" Exec exec pcmanfm
@@ -233,7 +232,6 @@ AddToMenu   MenuFvwmRoot "Fvwm" Title
 + "Copy Config%icons/conf.png%" FvwmScript FvwmScript-ConfirmCopyConfig
 + "---" Nop
 + "XKill" Exec exec xkill
-+ "Poweroff" Exec exec xfce4-terminal -x sudo poweroff
 + "Re&fresh%icons/refresh.png%" Refresh
 + "&Restart%icons/restart.png%" Restart
 + "&Quit%icons/quit.png%" Module FvwmScript FvwmScript-ConfirmQuit
@@ -248,13 +246,6 @@ PipeRead "fvwm2-menu-desktop -e"
 # This test for some common programs and adds them to the menu.
 # When adding programs you don't need to use the Test (x foo)
 # lines as this is only to help make this menu portable.
-DestroyMenu MenuPrograms
-AddToMenu   MenuPrograms "Programs" Title
-+ "Gimp" Exec exec gimp
-+ "Telegram" Exec exec telegram-desktop
-+ "FreeCAD" Exec exec freecad
-+ "Firefox" Exec exec firefox
-
 # Window Operations Menus
 DestroyMenu MenuWindowOps
 AddToMenu   MenuWindowOps
