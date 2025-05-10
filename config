@@ -17,7 +17,6 @@ AddToFunc   StartFunction
 + I Module FvwmPager 
 + I Module FvwmEvent EventNewDesk
 + I Module FvwmScript FvwmScript-DateTime
-+ I Exec sleep 2 && xdotool search --name "DateTime" windowmove 1470 570
 + I Exec fvwm-root ~/.fvwm/images/background/2.png 
 + I Exec setxkbmap "us,ru" "winkeys" "grp:alt_shift_toggle,grp_led:scroll"
 + I StartGxkb
@@ -25,6 +24,7 @@ AddToFunc   StartFunction
 + I Exec pasystray
 + I Module FvwmButtons Butts
 + I Module FvwmButtons trays
++ I Module FvwmButtons clock
 + I StartTint
 # Layout switcher
 DestroyFunc StartGxkb
@@ -582,7 +582,7 @@ DestroyModuleConfig Butts: *
 Style Butts !Title, WindowListSkip, sticky, !clicktofocus, fixedposition, fixedsize, mwmbuttons
 
 DestroyModuleConfig trays:*
-*trays: Geometry 120x30+1470+617
+*trays: Geometry 120x30+1470+620
 *trays: Back skyblue4
 *trays: Fore white
 *trays: Frame 0
@@ -591,6 +591,17 @@ DestroyModuleConfig trays:*
 *trays: (swallow "tint2")
 
 style trays !Title, WindowListSkip, sticky, fixedposition, fixedsize
+
+DestroyModuleConfig clock:*
+*clock: Geometry 120x40+1470+570 
+*clock: Back skyblue4
+*clock: Fore white
+*clock: Frame 0
+*clock: Rows 1
+*clock: Columns 1
+*clock: (swallow DateTime)
+
+style clock !Title, WindowListSkip, sticky, fixedposition, fixedsize
 
 # Local configuration file. For use with the default-config.
 #
