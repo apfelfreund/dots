@@ -41,7 +41,7 @@ DestroyModuleConfig poff: *
 *poff: columns 1
 *poff: button Yes "Yes" close
 *poff: command exec exec systemctl poweroff
-*poff: button No "No" quit
+*poff: button No "No" 
 *poff: command close
 
 # system tray
