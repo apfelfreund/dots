@@ -31,9 +31,18 @@ DestroyFunc StartGxkb
 AddToFunc StartGxkb
 + I Exec gxkb
 
-#Style "org-knopflerfish-framework-BundleThread" !title
 Style "win0" !title
 IconPath /usr/include/X11/bitmaps:/usr/include/X11/pixmaps:/usr/share/fvwm/icons:/usr/local/share/fvwm/icons:~/.fvwm/icons
+
+DestroyModuleConfig poff: *
+*poff: Line Center
+*poff: Text "Are u sure?"
+*poff: Rows 2
+*poff: columns 1
+*poff: button Yes "Yes" close
+*poff: command exec exec systemctl poweroff
+*poff: button No "No" quit
+*poff: command close
 
 # system tray
 DestroyFunc StartTint
@@ -237,7 +246,9 @@ AddToMenu   MenuFvwmRoot "Fvwm" Title
 + "&Restart%icons/restart.png%" Restart
 + "&Quit%icons/quit.png%" Module FvwmScript FvwmScript-ConfirmQuit
 + "---" Nop
-+ "Poweroff%icons/poff.png%" Exec exec xfce4-terminal -x sudo poweroff
++ "Poweroff%icons/poff.png%" Module FvwmForm poff
+
+#Exec exec xfce4-terminal -x sudo poweroff
 
 # Generate XDGMenu
 PipeRead "fvwm2-menu-desktop -e"
@@ -554,8 +565,6 @@ DestroyModuleConfig Butts: *
               action(mouse 1) "exec exec xkill")
 *Butts: (1x1, title "Freeplane" , \
               action(mouse 1) "exec exec freeplane")
-#*Butts: (1x1, title "poff" , \
-              action(mouse 1) Module fvwmform poff)
 
 
 
@@ -582,15 +591,6 @@ DestroyModuleConfig clock:*
 *clock: (swallow DateTime)
 
 style clock !Title, WindowListSkip, sticky, fixedposition, fixedsize
-
-DestroyModuleConfig poff: *
-*poff: Line Center
-*poff: Text "Poweroff"
-*poff: Line Left
-*poff: Text "Enter password:"
-*poff: Input pass 20 ""
-*poff: Command exec exec $(sudo poweroff $(pass))
-
 
 # Local configuration file. For use with the default-config.
 #
